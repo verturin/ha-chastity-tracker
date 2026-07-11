@@ -1,0 +1,6 @@
+{
+  "name": "Chastity Tracker (Cage et Chasteté)",
+  "render_readme": true,
+  "content_in_root": false,
+  "homeassistant": "2024.1.0"
+}

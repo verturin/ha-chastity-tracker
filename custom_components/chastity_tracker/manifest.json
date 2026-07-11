@@ -1,0 +1,11 @@
+{
+  "domain": "chastity_tracker",
+  "name": "Chastity Tracker (Cage et Chasteté)",
+  "codeowners": ["@verturin"],
+  "config_flow": true,
+  "documentation": "https://github.com/verturin/ha-chastity-tracker",
+  "issue_tracker": "https://github.com/verturin/ha-chastity-tracker/issues",
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "version": "1.0.0"
+}

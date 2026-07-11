@@ -1,0 +1,35 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Cage et Chasteté",
+        "description": "Renseigne l'URL de ton forum et le token API personnel généré depuis UCP → Confidentialité.",
+        "data": {
+          "base_url": "URL du forum",
+          "api_token": "Token API"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Token API invalide ou révoqué",
+      "cannot_connect": "Impossible de contacter le serveur",
+      "unknown": "Erreur inattendue"
+    },
+    "abort": {
+      "already_configured": "Ce compte est déjà configuré"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": { "name": "Statut" },
+      "days_current": { "name": "Jours en cours" },
+      "days_since_last": { "name": "Jours depuis la dernière période" },
+      "total_days": { "name": "Total cumulé" },
+      "days_current_year": { "name": "Jours cette année" },
+      "tagline": { "name": "Phrase personnalisée" }
+    },
+    "binary_sensor": {
+      "locked": { "name": "Cage" }
+    }
+  }
+}
