@@ -20,12 +20,20 @@ C'est tout — aucun YAML à écrire.
 | Entité | Description |
 |---|---|
 | `binary_sensor.cage` | Verrouillé / déverrouillé |
+| `binary_sensor.est_keyholder` | Compte Keyholder ou non |
+| `binary_sensor.a_une_kh_active` | KH active associée |
+| `binary_sensor.a_un_contrat_actif` | Contrat CTR en cours |
+| `binary_sensor.statut_masque` | Statut masqué (désactivée par défaut) |
 | `sensor.statut` | Statut texte |
 | `sensor.jours_en_cours` | Jours de la période active |
 | `sensor.jours_depuis_la_derniere_periode` | Jours écoulés depuis la fin |
 | `sensor.total_cumule` | Total de jours cumulés |
 | `sensor.jours_cette_annee` | Jours sur l'année en cours |
+| `sensor.nombre_d_encages_kh` | Nombre d'encagés si compte Keyholder |
 | `sensor.phrase_personnalisee` | Tagline (désactivée par défaut) |
+| `sensor.alias` | Alias (désactivée par défaut) |
+| `sensor.genre` | Genre (désactivée par défaut) |
+| `sensor.titre_keyholder` | Titre KH personnalisé (désactivée par défaut) |
 
 ## Mise à jour
 

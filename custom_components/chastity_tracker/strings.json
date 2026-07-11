@@ -6,7 +6,8 @@
         "description": "Renseigne l'URL de ton forum et le token API personnel généré depuis UCP → Confidentialité.",
         "data": {
           "base_url": "URL du forum",
-          "api_token": "Token API"
+          "api_token": "Token API",
+          "use_app_php": "Utiliser /app.php/ (URL courtes désactivées sur le forum)"
         }
       }
     },
@@ -26,10 +27,18 @@
       "days_since_last": { "name": "Jours depuis la dernière période" },
       "total_days": { "name": "Total cumulé" },
       "days_current_year": { "name": "Jours cette année" },
-      "tagline": { "name": "Phrase personnalisée" }
+      "tagline": { "name": "Phrase personnalisée" },
+      "alias": { "name": "Alias" },
+      "gender": { "name": "Genre" },
+      "keyholder_label": { "name": "Titre Keyholder" },
+      "kh_subs_count": { "name": "Nombre d'encagés (KH)" }
     },
     "binary_sensor": {
-      "locked": { "name": "Cage" }
+      "locked": { "name": "Cage" },
+      "is_keyholder": { "name": "Est Keyholder" },
+      "has_active_kh": { "name": "A une KH active" },
+      "has_active_contract": { "name": "A un contrat actif" },
+      "hide_status": { "name": "Statut masqué" }
     }
   }
 }

@@ -13,7 +13,16 @@ from homeassistant.exceptions import ConfigEntryAuthFailed
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
-from .const import API_PATH, CONF_API_TOKEN, CONF_BASE_URL, DEFAULT_SCAN_INTERVAL, DOMAIN
+from .const import (
+    API_PATH,
+    APP_PHP_PREFIX,
+    CONF_API_TOKEN,
+    CONF_BASE_URL,
+    CONF_USE_APP_PHP,
+    DEFAULT_SCAN_INTERVAL,
+    DEFAULT_USE_APP_PHP,
+    DOMAIN,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -26,6 +35,7 @@ class ChastityTrackerCoordinator(DataUpdateCoordinator):
         self.entry = entry
         self.base_url: str = entry.data[CONF_BASE_URL].rstrip("/")
         self.api_token: str = entry.data[CONF_API_TOKEN]
+        self.use_app_php: bool = entry.data.get(CONF_USE_APP_PHP, DEFAULT_USE_APP_PHP)
 
         super().__init__(
             hass,
@@ -36,7 +46,8 @@ class ChastityTrackerCoordinator(DataUpdateCoordinator):
 
     @property
     def api_url(self) -> str:
-        return f"{self.base_url}{API_PATH}"
+        prefix = APP_PHP_PREFIX if self.use_app_php else ""
+        return f"{self.base_url}{prefix}{API_PATH}"
 
     async def _async_update_data(self) -> dict:
         session = async_get_clientsession(self.hass)

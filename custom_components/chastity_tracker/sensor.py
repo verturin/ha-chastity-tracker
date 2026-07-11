@@ -14,9 +14,13 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import (
+    ATTR_ALIAS,
     ATTR_DAYS_CURRENT,
     ATTR_DAYS_CURRENT_YEAR,
     ATTR_DAYS_SINCE_LAST,
+    ATTR_GENDER,
+    ATTR_KEYHOLDER_LABEL,
+    ATTR_KH_SUBS_COUNT,
     ATTR_STATUS,
     ATTR_TAGLINE,
     ATTR_TOTAL_DAYS,
@@ -81,6 +85,38 @@ SENSOR_TYPES: tuple[ChastitySensorDescription, ...] = (
         icon="mdi:message-text",
         entity_registry_enabled_default=False,
     ),
+    ChastitySensorDescription(
+        key="alias",
+        json_key=ATTR_ALIAS,
+        translation_key="alias",
+        name="Alias",
+        icon="mdi:account",
+        entity_registry_enabled_default=False,
+    ),
+    ChastitySensorDescription(
+        key="gender",
+        json_key=ATTR_GENDER,
+        translation_key="gender",
+        name="Genre",
+        icon="mdi:human-non-binary",
+        entity_registry_enabled_default=False,
+    ),
+    ChastitySensorDescription(
+        key="keyholder_label",
+        json_key=ATTR_KEYHOLDER_LABEL,
+        translation_key="keyholder_label",
+        name="Titre Keyholder",
+        icon="mdi:key-variant",
+        entity_registry_enabled_default=False,
+    ),
+    ChastitySensorDescription(
+        key="kh_subs_count",
+        json_key=ATTR_KH_SUBS_COUNT,
+        translation_key="kh_subs_count",
+        name="Nombre d'encagés (KH)",
+        icon="mdi:account-group",
+        state_class="measurement",
+    ),
 )
 
 
@@ -94,7 +130,7 @@ async def async_setup_entry(
         ChastityTrackerSensor(coordinator, entry, description)
         for description in SENSOR_TYPES
         if description.json_key in (coordinator.data or {})
-        or description.key != "tagline"
+        or description.entity_registry_enabled_default is not False
     ]
     async_add_entities(entities)
 
